@@ -64,7 +64,7 @@ class Channel::TwilioSms < ApplicationRecord
 
   def send_message_from
     if messaging_service_sid?
-      { messaging_service_sid: messaging_service_sid }
+      { messaging_service_sid: messaging_service_sid, shorten_urls: true }
     else
       { from: phone_number }
     end
