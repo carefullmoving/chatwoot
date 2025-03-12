@@ -38,15 +38,23 @@
     "REMOVE_SELECTION": "Seçimi Kaldır",
     "DOWNLOAD": "İndir",
     "UNKNOWN_FILE_TYPE": "Bilinmeyen Dosya",
-    "SAVE_CONTACT": "Kaydet",
+    "SAVE_CONTACT": "Save Contact",
+    "NO_CONTENT": "No content to display",
+    "SHARED_ATTACHMENT": {
+      "CONTACT": "{sender} has shared a contact",
+      "LOCATION": "{sender} has shared a location",
+      "FILE": "{sender} has shared a file",
+      "MEETING": "{sender} bir toplantı başlattı"
+    },
     "UPLOADING_ATTACHMENTS": "Dosyalar gönderiliyor...",
     "REPLIED_TO_STORY": "Hikayene cevap verildi",
-    "UNSUPPORTED_MESSAGE": "Bu mesaj desteklenmiyor.",
+    "UNSUPPORTED_MESSAGE": "This message is unsupported. You can view this message on the Facebook / Instagram app.",
     "UNSUPPORTED_MESSAGE_FACEBOOK": "Bu mesaj desteklenmiyor. Bu mesajı Facebook Messenger uygulamasında görüntüleyebilirsiniz.",
     "UNSUPPORTED_MESSAGE_INSTAGRAM": "Bu mesaj desteklenmiyor. Bu mesajı Instagram uygulamasında görüntüleyebilirsiniz.",
     "SUCCESS_DELETE_MESSAGE": "Mesaj başarıyla silindi",
     "FAIL_DELETE_MESSSAGE": "Mesaj silinemiyor. Tekrar deneyin",
     "NO_RESPONSE": "Cevap Yok",
+    "RESPONSE": "Response",
     "RATING_TITLE": "Değerlendirme",
     "FEEDBACK_TITLE": "Geribildirim",
     "REPLY_MESSAGE_NOT_FOUND": "Mesaj bulunamadı",
@@ -101,7 +109,7 @@
         "SELECT_PLACEHOLDER": "Hiçbiri",
         "INPUT_PLACEHOLDER": "Öncelik seçin",
         "NO_RESULTS": "Sonuç bulunamadı",
-        "SUCCESSFUL": "Sohbet kimliği %{conversationId} önceliği %{priority} olarak değiştirildi",
+        "SUCCESSFUL": "Sohbet kimliği {conversationId} önceliği {priority} olarak değiştirildi",
         "FAILED": "Öncelik değiştirilemedi. Lütfen tekrar deneyin."
       }
     },
@@ -109,6 +117,7 @@
       "PENDING": "Beklemede olarak işaretle",
       "RESOLVED": "Çözüldü olarak işaretle",
       "MARK_AS_UNREAD": "Okunmamış olarak işaretle",
+      "MARK_AS_READ": "Okundu olarak işaretle",
       "REOPEN": "Görüşmeyi yeniden açın",
       "SNOOZE": {
         "TITLE": "Sustur",
@@ -122,15 +131,15 @@
       "ASSIGN_TEAM": "Takım ata",
       "API": {
         "AGENT_ASSIGNMENT": {
-          "SUCCESFUL": "Sohbet kimliği %{conversationId} \"%{agentName}\" tarafından atanmış",
+          "SUCCESFUL": "Sohbet kimliği {conversationId} \"{agentName}\" tarafından atanmış",
           "FAILED": "Temsilci atanamadı. Lütfen tekrar deneyin."
         },
         "LABEL_ASSIGNMENT": {
-          "SUCCESFUL": "Sohbet kimliği %{conversationId} için etiket #%{labelName} atanmış",
+          "SUCCESFUL": "Assigned label #{labelName} to conversation id {conversationId}",
           "FAILED": "Etiket atanamadı. Lütfen tekrar deneyin."
         },
         "TEAM_ASSIGNMENT": {
-          "SUCCESFUL": "Sohbet kimliği %{conversationId} için \"%{team}\" takımına atanmış",
+          "SUCCESFUL": "Sohbet kimliği {conversationId} için \"{team}\" takımına atanmış",
           "FAILED": "Takım atanamadı. Lütfen tekrar deneyin."
         }
       }
@@ -219,6 +228,10 @@
         "DELETE": "Sil",
         "CANCEL": "İptal Et"
       }
+    },
+    "SIDEBAR": {
+      "CONTACT": "İletişim",
+      "COPILOT": "Copilot"
     }
   },
   "EMAIL_TRANSCRIPT": {
@@ -239,11 +252,11 @@
     }
   },
   "ONBOARDING": {
-    "TITLE": "Merhaba 👋, %{installationName}'a hoş geldiniz!",
-    "DESCRIPTION": "Üyeliğiniz için teşekkür ederiz. %{installationName}'dan en iyi şekilde faydalanmanızı istiyoruz. Deneyimi daha keyifli hale getirmek için %{installationName} içinde yapabileceğiniz birkaç şey var.",
-    "GREETING_MORNING": "👋 Good morning, %{name}. Welcome to %{installationName}.",
-    "GREETING_AFTERNOON": "👋 Good afternoon, %{name}. Welcome to %{installationName}.",
-    "GREETING_EVENING": "👋 Good evening, %{name}. Welcome to %{installationName}.",
+    "TITLE": "Merhaba 👋, {installationName}'a hoş geldiniz!",
+    "DESCRIPTION": "Üyeliğiniz için teşekkür ederiz. {installationName}'dan en iyi şekilde faydalanmanızı istiyoruz. Deneyimi daha keyifli hale getirmek için {installationName} içinde yapabileceğiniz birkaç şey var.",
+    "GREETING_MORNING": "👋 Good morning, {name}. Welcome to {installationName}.",
+    "GREETING_AFTERNOON": "👋 Good afternoon, {name}. Welcome to {installationName}.",
+    "GREETING_EVENING": "👋 Good evening, {name}. Welcome to {installationName}.",
     "READ_LATEST_UPDATES": "En Son Güncellemeleri Okuyun",
     "ALL_CONVERSATION": {
       "TITLE": "Tüm Konuşmalarınız Bir Arada",
@@ -280,7 +293,7 @@
       "CONVERSATION_INFO": "Konuşma Bilgisi",
       "CONTACT_ATTRIBUTES": "İletişim Nitelikleri",
       "PREVIOUS_CONVERSATION": "Önceki Konuşmalar",
-      "MACROS": "Makrolar"
+      "MACROS": "Kısayollar"
     }
   },
   "CONVERSATION_CUSTOM_ATTRIBUTES": {
@@ -310,17 +323,18 @@
     "TO": "Kime",
     "BCC": "Gizli Kopya",
     "CC": "Kopya",
-    "SUBJECT": "Konu"
+    "SUBJECT": "Konu",
+    "EXPAND": "Expand email"
   },
   "CONVERSATION_PARTICIPANTS": {
     "SIDEBAR_MENU_TITLE": "Katılımcılar",
     "SIDEBAR_TITLE": "Konuşma Katılımcıları",
     "NO_RECORDS_FOUND": "Kayıt bulunamadı",
     "ADD_PARTICIPANTS": "Katılımcıları Seç",
-    "REMANING_PARTICIPANTS_TEXT": "+%{count} diğer",
-    "REMANING_PARTICIPANT_TEXT": "+%{count} diğer",
-    "TOTAL_PARTICIPANTS_TEXT": "%{count} kişi katılıyor.",
-    "TOTAL_PARTICIPANT_TEXT": "%{count} kişi katılıyor.",
+    "REMANING_PARTICIPANTS_TEXT": "+{count} diğer",
+    "REMANING_PARTICIPANT_TEXT": "+{count} diğer",
+    "TOTAL_PARTICIPANTS_TEXT": "{count} kişi katılıyor.",
+    "TOTAL_PARTICIPANT_TEXT": "{count} kişi katılıyor.",
     "NO_PARTICIPANTS_TEXT": "Kimse katılmıyor!",
     "WATCH_CONVERSATION": "Konuşmaya Katıl",
     "YOU_ARE_WATCHING": "Katılıyorsunuz",
@@ -335,5 +349,16 @@
     "ORIGINAL_CONTENT": "Orijinal İçerik",
     "TRANSLATED_CONTENT": "Çevrilen İçerik",
     "NO_TRANSLATIONS_AVAILABLE": "Bu için çeviri mevcut değil"
+  },
+  "TYPING": {
+    "ONE": "{user} is typing",
+    "TWO": "{user} and {secondUser} are typing",
+    "MULTIPLE": "{user} and {count} others are typing"
+  },
+  "COPILOT": {
+    "TRY_THESE_PROMPTS": "Try these prompts"
+  },
+  "GALLERY_VIEW": {
+    "ERROR_DOWNLOADING": "Unable to download attachment. Please try again"
   }
 }

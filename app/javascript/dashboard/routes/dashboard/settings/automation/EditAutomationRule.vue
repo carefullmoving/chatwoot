@@ -1,6 +1,7 @@
 <script>
 import { mapGetters } from 'vuex';
 import { useAutomation } from 'dashboard/composables/useAutomation';
+import { useEditableAutomation } from 'dashboard/composables/useEditableAutomation';
 import FilterInputBox from 'dashboard/components/widgets/FilterInput/Index.vue';
 import AutomationActionInput from 'dashboard/components/widgets/AutomationActionInput.vue';
 import {
@@ -14,11 +15,7 @@ import {
 } from 'dashboard/helper/automationHelper';
 import { validateAutomation } from 'dashboard/helper/validations';
 
-import {
-  AUTOMATION_RULE_EVENTS,
-  AUTOMATION_ACTION_TYPES,
-  AUTOMATIONS,
-} from './constants';
+import { AUTOMATION_RULE_EVENTS, AUTOMATION_ACTION_TYPES } from './constants';
 
 export default {
   components: {
@@ -35,8 +32,11 @@ export default {
       default: () => {},
     },
   },
+  emits: ['saveAutomation'],
   setup() {
     const {
+      automation,
+      automationTypes,
       onEventChange,
       getConditionDropdownValues,
       appendNewCondition,
@@ -46,10 +46,12 @@ export default {
       resetFilter,
       resetAction,
       getActionDropdownValues,
-      formatAutomation,
       manifestCustomAttributes,
     } = useAutomation();
+    const { formatAutomation } = useEditableAutomation();
     return {
+      automation,
+      automationTypes,
       onEventChange,
       getConditionDropdownValues,
       appendNewCondition,
@@ -65,12 +67,10 @@ export default {
   },
   data() {
     return {
-      automationTypes: JSON.parse(JSON.stringify(AUTOMATIONS)),
       automationRuleEvent: AUTOMATION_RULE_EVENTS[0].key,
       automationRuleEvents: AUTOMATION_RULE_EVENTS,
       automationMutated: false,
       show: true,
-      automation: null,
       showDeleteConfirmationModal: false,
       allCustomAttributes: [],
       mode: 'edit',
@@ -98,7 +98,7 @@ export default {
     },
   },
   mounted() {
-    this.manifestCustomAttributes(this.automationTypes);
+    this.manifestCustomAttributes();
     this.allCustomAttributes = this.$store.getters['attributes/getAttributes'];
 
     this.automation = this.formatAutomation(
@@ -178,7 +178,7 @@ export default {
             {{ $t('AUTOMATION.ADD.FORM.CONDITIONS.LABEL') }}
           </label>
           <div
-            class="w-full p-4 mb-4 border border-solid rounded-lg bg-slate-25 dark:bg-slate-700 border-slate-50 dark:border-slate-700"
+            class="w-full p-4 mb-4 border border-solid rounded-lg bg-n-slate-2 dark:bg-n-solid-2 border-n-strong"
           >
             <FilterInputBox
               v-for="(condition, i) in automation.conditions"
@@ -222,15 +222,8 @@ export default {
                   ? $t(`AUTOMATION.ERRORS.${errors[`condition_${i}`]}`)
                   : ''
               "
-              @resetFilter="
-                resetFilter(
-                  automation,
-                  automationTypes,
-                  i,
-                  automation.conditions[i]
-                )
-              "
-              @removeFilter="removeFilter(automation, i)"
+              @reset-filter="resetFilter(i, automation.conditions[i])"
+              @remove-filter="removeFilter(i)"
             />
             <div class="mt-4">
               <woot-button
@@ -238,7 +231,7 @@ export default {
                 color-scheme="success"
                 variant="smooth"
                 size="small"
-                @click="appendNewCondition(automation)"
+                @click="appendNewCondition"
               >
                 {{ $t('AUTOMATION.ADD.CONDITION_BUTTON_LABEL') }}
               </woot-button>
@@ -252,7 +245,7 @@ export default {
             {{ $t('AUTOMATION.ADD.FORM.ACTIONS.LABEL') }}
           </label>
           <div
-            class="w-full p-4 mb-4 border border-solid rounded-lg bg-slate-25 dark:bg-slate-700 border-slate-50 dark:border-slate-700"
+            class="w-full p-4 mb-4 border border-solid rounded-lg bg-n-slate-2 dark:bg-n-solid-2 border-n-strong"
           >
             <AutomationActionInput
               v-for="(action, i) in automation.actions"
@@ -269,8 +262,8 @@ export default {
                   : ''
               "
               :initial-file-name="getFileName(action, automation.files)"
-              @resetAction="resetAction(automation, i)"
-              @removeAction="removeAction(automation, i)"
+              @reset-action="resetAction(i)"
+              @remove-action="removeAction(i)"
             />
             <div class="mt-4">
               <woot-button
@@ -278,7 +271,7 @@ export default {
                 color-scheme="success"
                 variant="smooth"
                 size="small"
-                @click="appendNewAction(automation)"
+                @click="appendNewAction"
               >
                 {{ $t('AUTOMATION.ADD.ACTION_BUTTON_LABEL') }}
               </woot-button>

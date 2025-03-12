@@ -38,15 +38,23 @@
     "REMOVE_SELECTION": "Ukloni izbor",
     "DOWNLOAD": "Preuzmi",
     "UNKNOWN_FILE_TYPE": "Nepoznata datoteka",
-    "SAVE_CONTACT": "Save",
+    "SAVE_CONTACT": "Save Contact",
+    "NO_CONTENT": "No content to display",
+    "SHARED_ATTACHMENT": {
+      "CONTACT": "{sender} has shared a contact",
+      "LOCATION": "{sender} has shared a location",
+      "FILE": "{sender} has shared a file",
+      "MEETING": "{sender} has started a meeting"
+    },
     "UPLOADING_ATTACHMENTS": "Dodavanje priloga...",
     "REPLIED_TO_STORY": "Replied to your story",
-    "UNSUPPORTED_MESSAGE": "This message is unsupported.",
+    "UNSUPPORTED_MESSAGE": "This message is unsupported. You can view this message on the Facebook / Instagram app.",
     "UNSUPPORTED_MESSAGE_FACEBOOK": "This message is unsupported. You can view this message on the Facebook Messenger app.",
     "UNSUPPORTED_MESSAGE_INSTAGRAM": "This message is unsupported. You can view this message on the Instagram app.",
     "SUCCESS_DELETE_MESSAGE": "Poruka je uspešno obrisana",
     "FAIL_DELETE_MESSSAGE": "Nije bilo moguće obrisati poruku! Pokušajte ponovo",
     "NO_RESPONSE": "Nema odgovora",
+    "RESPONSE": "Response",
     "RATING_TITLE": "Ocena",
     "FEEDBACK_TITLE": "Povratne informacije",
     "REPLY_MESSAGE_NOT_FOUND": "Message not available",
@@ -101,7 +109,7 @@
         "SELECT_PLACEHOLDER": "Niko",
         "INPUT_PLACEHOLDER": "Select priority",
         "NO_RESULTS": "Ništa nije pronađeno",
-        "SUCCESSFUL": "Changed priority of conversation id %{conversationId} to %{priority}",
+        "SUCCESSFUL": "Changed priority of conversation id {conversationId} to {priority}",
         "FAILED": "Couldn't change priority. Please try again."
       }
     },
@@ -109,6 +117,7 @@
       "PENDING": "Označeno na čekanju",
       "RESOLVED": "Označi kao rešeno",
       "MARK_AS_UNREAD": "Mark as unread",
+      "MARK_AS_READ": "Mark as read",
       "REOPEN": "Ponovo otvori razgovor",
       "SNOOZE": {
         "TITLE": "Odloži",
@@ -122,15 +131,15 @@
       "ASSIGN_TEAM": "Dodeli tim",
       "API": {
         "AGENT_ASSIGNMENT": {
-          "SUCCESFUL": "Razgovor sa ID %{conversationId} je dodeljen \"%{agentName}\"",
+          "SUCCESFUL": "Razgovor sa ID {conversationId} je dodeljen \"{agentName}\"",
           "FAILED": "Nije bilo moguće dodeliti agenta. Molim vas pokušajte ponovo."
         },
         "LABEL_ASSIGNMENT": {
-          "SUCCESFUL": "Dodeljena je oznaka # %{labelName} razgovoru sa id %{conversationId}",
+          "SUCCESFUL": "Assigned label #{labelName} to conversation id {conversationId}",
           "FAILED": "Nije bilo moguće dodeliti oznaku. Molim vas pokušajte ponovo."
         },
         "TEAM_ASSIGNMENT": {
-          "SUCCESFUL": "Dodeljen je tim \"%{team}\" razgovoru sa id %{conversationId}",
+          "SUCCESFUL": "Dodeljen je tim \"{team}\" razgovoru sa id {conversationId}",
           "FAILED": "Nije bilo moguće dodeliti tim. Molim vas pokušajte ponovo."
         }
       }
@@ -219,6 +228,10 @@
         "DELETE": "Izbriši",
         "CANCEL": "Otkaži"
       }
+    },
+    "SIDEBAR": {
+      "CONTACT": "Kontakt",
+      "COPILOT": "Copilot"
     }
   },
   "EMAIL_TRANSCRIPT": {
@@ -239,11 +252,11 @@
     }
   },
   "ONBOARDING": {
-    "TITLE": "Zdravo 👋, Dobrodošli u %{installationName}!",
-    "DESCRIPTION": "Hvala vam na registraciji. Želimo da najbolje iskoristite ovu %{installationName}. Evo nekoliko stvari koje možete da uradite u %{installationName} da bi vaše iskustvo bilo izvrsno.",
-    "GREETING_MORNING": "👋 Good morning, %{name}. Welcome to %{installationName}.",
-    "GREETING_AFTERNOON": "👋 Good afternoon, %{name}. Welcome to %{installationName}.",
-    "GREETING_EVENING": "👋 Good evening, %{name}. Welcome to %{installationName}.",
+    "TITLE": "Zdravo 👋, Dobrodošli u {installationName}!",
+    "DESCRIPTION": "Hvala vam na registraciji. Želimo da najbolje iskoristite ovu {installationName}. Evo nekoliko stvari koje možete da uradite u {installationName} da bi vaše iskustvo bilo izvrsno.",
+    "GREETING_MORNING": "👋 Good morning, {name}. Welcome to {installationName}.",
+    "GREETING_AFTERNOON": "👋 Good afternoon, {name}. Welcome to {installationName}.",
+    "GREETING_EVENING": "👋 Good evening, {name}. Welcome to {installationName}.",
     "READ_LATEST_UPDATES": "Pročitajte naše najnovije izmene",
     "ALL_CONVERSATION": {
       "TITLE": "Svi vaši razgovori na jednom mestu",
@@ -310,17 +323,18 @@
     "TO": "Za",
     "BCC": "Bcc",
     "CC": "Cc",
-    "SUBJECT": "Naslov"
+    "SUBJECT": "Naslov",
+    "EXPAND": "Expand email"
   },
   "CONVERSATION_PARTICIPANTS": {
     "SIDEBAR_MENU_TITLE": "Participating",
     "SIDEBAR_TITLE": "Conversation participants",
     "NO_RECORDS_FOUND": "Ništa nije pronađeno",
     "ADD_PARTICIPANTS": "Select participants",
-    "REMANING_PARTICIPANTS_TEXT": "+%{count} others",
-    "REMANING_PARTICIPANT_TEXT": "+%{count} other",
-    "TOTAL_PARTICIPANTS_TEXT": "%{count} people are participating.",
-    "TOTAL_PARTICIPANT_TEXT": "%{count} person is participating.",
+    "REMANING_PARTICIPANTS_TEXT": "+{count} others",
+    "REMANING_PARTICIPANT_TEXT": "+{count} other",
+    "TOTAL_PARTICIPANTS_TEXT": "{count} people are participating.",
+    "TOTAL_PARTICIPANT_TEXT": "{count} person is participating.",
     "NO_PARTICIPANTS_TEXT": "No one is participating!.",
     "WATCH_CONVERSATION": "Join conversation",
     "YOU_ARE_WATCHING": "You are participating",
@@ -335,5 +349,16 @@
     "ORIGINAL_CONTENT": "Original Content",
     "TRANSLATED_CONTENT": "Translated Content",
     "NO_TRANSLATIONS_AVAILABLE": "No translations are available for this content"
+  },
+  "TYPING": {
+    "ONE": "{user} is typing",
+    "TWO": "{user} and {secondUser} are typing",
+    "MULTIPLE": "{user} and {count} others are typing"
+  },
+  "COPILOT": {
+    "TRY_THESE_PROMPTS": "Try these prompts"
+  },
+  "GALLERY_VIEW": {
+    "ERROR_DOWNLOADING": "Unable to download attachment. Please try again"
   }
 }

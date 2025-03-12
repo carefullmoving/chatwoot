@@ -9,7 +9,7 @@ export default {
     WootMessageEditor,
   },
   props: {
-    value: {
+    modelValue: {
       type: Object,
       default: () => null,
     },
@@ -38,24 +38,27 @@ export default {
       default: false,
     },
   },
+  emits: ['update:modelValue', 'input', 'removeAction', 'resetAction'],
   computed: {
     action_name: {
       get() {
-        if (!this.value) return null;
-        return this.value.action_name;
+        if (!this.modelValue) return null;
+        return this.modelValue.action_name;
       },
       set(value) {
-        const payload = this.value || {};
+        const payload = this.modelValue || {};
+        this.$emit('update:modelValue', { ...payload, action_name: value });
         this.$emit('input', { ...payload, action_name: value });
       },
     },
     action_params: {
       get() {
-        if (!this.value) return null;
-        return this.value.action_params;
+        if (!this.modelValue) return null;
+        return this.modelValue.action_params;
       },
       set(value) {
-        const payload = this.value || {};
+        const payload = this.modelValue || {};
+        this.$emit('update:modelValue', { ...payload, action_params: value });
         this.$emit('input', { ...payload, action_params: value });
       },
     },
@@ -198,10 +201,10 @@ export default {
 
 <style lang="scss" scoped>
 .filter {
-  @apply bg-slate-50 dark:bg-slate-800 p-2 border border-solid border-slate-75 dark:border-slate-600 rounded-md mb-2;
+  @apply bg-n-slate-3 dark:bg-n-solid-3 p-2 border border-solid border-n-strong dark:border-n-strong rounded-md mb-2;
 
   &.is-a-macro {
-    @apply mb-0 bg-white dark:bg-slate-700 p-0 border-0 rounded-none;
+    @apply mb-0 bg-n-slate-2 dark:bg-n-solid-3 p-0 border-0 rounded-none;
   }
 }
 

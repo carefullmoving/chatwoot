@@ -1,11 +1,13 @@
 <script setup>
 import { ref, computed } from 'vue';
-import { useI18n } from 'dashboard/composables/useI18n';
+import { useI18n } from 'vue-i18n';
+import { useTrack } from 'dashboard/composables';
 import { useAlert } from 'dashboard/composables';
 import LinearAPI from 'dashboard/api/integrations/linear';
 import FilterButton from 'dashboard/components/ui/Dropdown/DropdownButton.vue';
 import FilterListDropdown from 'dashboard/components/ui/Dropdown/DropdownList.vue';
 import { parseLinearAPIErrorResponse } from 'dashboard/store/utils/api';
+import { LINEAR_EVENTS } from 'dashboard/helper/AnalyticsHelper/events';
 
 const props = defineProps({
   conversationId: {
@@ -85,6 +87,7 @@ const linkIssue = async () => {
     searchQuery.value = '';
     issues.value = [];
     onClose();
+    useTrack(LINEAR_EVENTS.LINK_ISSUE);
   } catch (error) {
     const errorMessage = parseLinearAPIErrorResponse(
       error,
@@ -120,8 +123,8 @@ const linkIssue = async () => {
           :loading-placeholder="$t('INTEGRATION_SETTINGS.LINEAR.LINK.LOADING')"
           enable-search
           class="left-0 flex flex-col w-full overflow-y-auto h-fit !max-h-[160px] md:left-auto md:right-0 top-10"
-          @onSearch="onSearch"
-          @click="onSelectIssue"
+          @on-search="onSearch"
+          @select="onSelectIssue"
         />
       </template>
     </FilterButton>

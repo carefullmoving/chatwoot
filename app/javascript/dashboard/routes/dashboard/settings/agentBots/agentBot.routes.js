@@ -1,8 +1,9 @@
-const Bot = () => import('./Index.vue');
-const CsmlEditBot = () => import('./csml/Edit.vue');
-const CsmlNewBot = () => import('./csml/New.vue');
+import { FEATURE_FLAGS } from '../../../../featureFlags';
+import Bot from './Index.vue';
+import CsmlEditBot from './csml/Edit.vue';
+import CsmlNewBot from './csml/New.vue';
 import { frontendURL } from '../../../../helper/URLHelper';
-const SettingsContent = () => import('../Wrapper.vue');
+import SettingsContent from '../Wrapper.vue';
 
 export default {
   routes: [
@@ -23,6 +24,7 @@ export default {
           name: 'agent_bots',
           component: Bot,
           meta: {
+            featureFlag: FEATURE_FLAGS.AGENT_BOTS,
             permissions: ['administrator'],
           },
         },
@@ -31,6 +33,7 @@ export default {
           name: 'agent_bots_csml_new',
           component: CsmlNewBot,
           meta: {
+            featureFlag: FEATURE_FLAGS.AGENT_BOTS,
             permissions: ['administrator'],
           },
         },
@@ -39,6 +42,7 @@ export default {
           name: 'agent_bots_csml_edit',
           component: CsmlEditBot,
           meta: {
+            featureFlag: FEATURE_FLAGS.AGENT_BOTS,
             permissions: ['administrator'],
           },
         },

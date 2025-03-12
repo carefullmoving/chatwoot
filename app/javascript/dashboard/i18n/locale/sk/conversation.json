@@ -17,10 +17,10 @@
       "KEYBOARD_SHORTCUTS": "to view keyboard shortcuts"
     },
     "SEARCH": {
-      "TITLE": "Search messages",
+      "TITLE": "Prehľadávať správy",
       "RESULT_TITLE": "Search Results",
       "LOADING_MESSAGE": "Crunching data...",
-      "PLACEHOLDER": "Type any text to search messages",
+      "PLACEHOLDER": "Napíšte niečo pre vyhľadanie správ",
       "NO_MATCHING_RESULTS": "No results found."
     },
     "UNREAD_MESSAGES": "Unread Messages",
@@ -38,15 +38,23 @@
     "REMOVE_SELECTION": "Odstrániť výber",
     "DOWNLOAD": "Stiahnuť",
     "UNKNOWN_FILE_TYPE": "Unknown File",
-    "SAVE_CONTACT": "Save",
+    "SAVE_CONTACT": "Save Contact",
+    "NO_CONTENT": "No content to display",
+    "SHARED_ATTACHMENT": {
+      "CONTACT": "{sender} has shared a contact",
+      "LOCATION": "{sender} has shared a location",
+      "FILE": "{sender} has shared a file",
+      "MEETING": "{sender} has started a meeting"
+    },
     "UPLOADING_ATTACHMENTS": "Prílohy sa nahrávajú...",
     "REPLIED_TO_STORY": "Replied to your story",
-    "UNSUPPORTED_MESSAGE": "This message is unsupported.",
+    "UNSUPPORTED_MESSAGE": "This message is unsupported. You can view this message on the Facebook / Instagram app.",
     "UNSUPPORTED_MESSAGE_FACEBOOK": "This message is unsupported. You can view this message on the Facebook Messenger app.",
     "UNSUPPORTED_MESSAGE_INSTAGRAM": "This message is unsupported. You can view this message on the Instagram app.",
     "SUCCESS_DELETE_MESSAGE": "Správa bola úspešne odstránená",
     "FAIL_DELETE_MESSSAGE": "Správu sa nepodarilo vymazať! Skúste to znova",
     "NO_RESPONSE": "Žiadna odpoveď",
+    "RESPONSE": "Response",
     "RATING_TITLE": "Hodnotenia",
     "FEEDBACK_TITLE": "Spätná väzba",
     "REPLY_MESSAGE_NOT_FOUND": "Message not available",
@@ -101,7 +109,7 @@
         "SELECT_PLACEHOLDER": "Žiadne",
         "INPUT_PLACEHOLDER": "Select priority",
         "NO_RESULTS": "Žiadne výsledky neboli nájdené",
-        "SUCCESSFUL": "Changed priority of conversation id %{conversationId} to %{priority}",
+        "SUCCESSFUL": "Changed priority of conversation id {conversationId} to {priority}",
         "FAILED": "Couldn't change priority. Please try again."
       }
     },
@@ -109,6 +117,7 @@
       "PENDING": "Označiť ako čakajúce na vybavenie",
       "RESOLVED": "Mark as resolved",
       "MARK_AS_UNREAD": "Mark as unread",
+      "MARK_AS_READ": "Mark as read",
       "REOPEN": "Reopen conversation",
       "SNOOZE": {
         "TITLE": "Snooze",
@@ -122,15 +131,15 @@
       "ASSIGN_TEAM": "Assign team",
       "API": {
         "AGENT_ASSIGNMENT": {
-          "SUCCESFUL": "Conversation id %{conversationId} assigned to \"%{agentName}\"",
+          "SUCCESFUL": "Conversation id {conversationId} assigned to \"{agentName}\"",
           "FAILED": "Couldn't assign agent. Please try again."
         },
         "LABEL_ASSIGNMENT": {
-          "SUCCESFUL": "Assigned label #%{labelName} to conversation id %{conversationId}",
+          "SUCCESFUL": "Assigned label #{labelName} to conversation id {conversationId}",
           "FAILED": "Couldn't assign label. Please try again."
         },
         "TEAM_ASSIGNMENT": {
-          "SUCCESFUL": "Assigned team \"%{team}\" to conversation id %{conversationId}",
+          "SUCCESFUL": "Assigned team \"{team}\" to conversation id {conversationId}",
           "FAILED": "Couldn't assign team. Please try again."
         }
       }
@@ -219,6 +228,10 @@
         "DELETE": "Vymazať",
         "CANCEL": "Zrušiť"
       }
+    },
+    "SIDEBAR": {
+      "CONTACT": "Contact",
+      "COPILOT": "Copilot"
     }
   },
   "EMAIL_TRANSCRIPT": {
@@ -239,11 +252,11 @@
     }
   },
   "ONBOARDING": {
-    "TITLE": "Ahoj 👋, vitaj v %{installationName}!",
-    "DESCRIPTION": "Ďakujeme za registráciu. Chceme, aby ste z %{installationName} vyťažili čo najviac. Tu je niekoľko vecí, ktoré môžete urobiť v %{installationName}, aby ste si spríjemnili zážitok.",
-    "GREETING_MORNING": "👋 Good morning, %{name}. Welcome to %{installationName}.",
-    "GREETING_AFTERNOON": "👋 Good afternoon, %{name}. Welcome to %{installationName}.",
-    "GREETING_EVENING": "👋 Good evening, %{name}. Welcome to %{installationName}.",
+    "TITLE": "Ahoj 👋, vitaj v {installationName}!",
+    "DESCRIPTION": "Ďakujeme za registráciu. Chceme, aby ste z {installationName} vyťažili čo najviac. Tu je niekoľko vecí, ktoré môžete urobiť v {installationName}, aby ste si spríjemnili zážitok.",
+    "GREETING_MORNING": "👋 Good morning, {name}. Welcome to {installationName}.",
+    "GREETING_AFTERNOON": "👋 Good afternoon, {name}. Welcome to {installationName}.",
+    "GREETING_EVENING": "👋 Good evening, {name}. Welcome to {installationName}.",
     "READ_LATEST_UPDATES": "Prečítajte si naše novinky",
     "ALL_CONVERSATION": {
       "TITLE": "Všetky vaše konverzácie na jednom mieste",
@@ -310,17 +323,18 @@
     "TO": "Pre",
     "BCC": "Skrytá kópia",
     "CC": "Kópia",
-    "SUBJECT": "Predmet"
+    "SUBJECT": "Predmet",
+    "EXPAND": "Expand email"
   },
   "CONVERSATION_PARTICIPANTS": {
     "SIDEBAR_MENU_TITLE": "Participating",
     "SIDEBAR_TITLE": "Conversation participants",
     "NO_RECORDS_FOUND": "Žiadne výsledky neboli nájdené",
     "ADD_PARTICIPANTS": "Select participants",
-    "REMANING_PARTICIPANTS_TEXT": "+%{count} others",
-    "REMANING_PARTICIPANT_TEXT": "+%{count} other",
-    "TOTAL_PARTICIPANTS_TEXT": "%{count} people are participating.",
-    "TOTAL_PARTICIPANT_TEXT": "%{count} person is participating.",
+    "REMANING_PARTICIPANTS_TEXT": "+{count} others",
+    "REMANING_PARTICIPANT_TEXT": "+{count} other",
+    "TOTAL_PARTICIPANTS_TEXT": "{count} people are participating.",
+    "TOTAL_PARTICIPANT_TEXT": "{count} person is participating.",
     "NO_PARTICIPANTS_TEXT": "No one is participating!.",
     "WATCH_CONVERSATION": "Join conversation",
     "YOU_ARE_WATCHING": "You are participating",
@@ -335,5 +349,16 @@
     "ORIGINAL_CONTENT": "Original Content",
     "TRANSLATED_CONTENT": "Translated Content",
     "NO_TRANSLATIONS_AVAILABLE": "No translations are available for this content"
+  },
+  "TYPING": {
+    "ONE": "{user} is typing",
+    "TWO": "{user} and {secondUser} are typing",
+    "MULTIPLE": "{user} and {count} others are typing"
+  },
+  "COPILOT": {
+    "TRY_THESE_PROMPTS": "Try these prompts"
+  },
+  "GALLERY_VIEW": {
+    "ERROR_DOWNLOADING": "Unable to download attachment. Please try again"
   }
 }

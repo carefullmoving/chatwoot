@@ -19,6 +19,7 @@ export default {
       required: true,
     },
   },
+  emits: ['close', 'submitSla'],
   setup() {
     return { v$: useVuelidate() };
   },
@@ -126,7 +127,7 @@ export default {
         resolution_time_threshold: this.convertToSeconds(2),
         only_during_business_hours: this.onlyDuringBusinessHours,
       };
-      this.$emit('submit', payload);
+      this.$emit('submitSla', payload);
     },
     convertToSeconds(index) {
       const { threshold, unit } = this.slaTimeInputs[index];
@@ -160,22 +161,23 @@ export default {
         :class="{ error: v$.name.$error }"
         class="w-full"
         :styles="{
-          borderRadius: '12px',
-          padding: '6px 12px',
-          fontSize: '14px',
+          borderRadius: '0.75rem',
+          padding: '0.375rem 0.75rem',
+          fontSize: '0.875rem',
         }"
         :label="$t('SLA.FORM.NAME.LABEL')"
         :placeholder="$t('SLA.FORM.NAME.PLACEHOLDER')"
         :error="slaNameErrorMessage"
         @input="v$.name.$touch"
+        @blur="v$.name.$touch"
       />
       <woot-input
         v-model="description"
         class="w-full"
         :styles="{
-          borderRadius: '12px',
-          padding: '6px 12px',
-          fontSize: '14px',
+          borderRadius: '0.75rem',
+          padding: '0.375rem 0.75rem',
+          fontSize: '0.875rem',
         }"
         :label="$t('SLA.FORM.DESCRIPTION.LABEL')"
         :placeholder="$t('SLA.FORM.DESCRIPTION.PLACEHOLDER')"
@@ -188,9 +190,9 @@ export default {
         :threshold-unit="input.unit"
         :label="$t(input.label)"
         :placeholder="$t(input.placeholder)"
-        @input="updateThreshold(index, $event)"
+        @update-threshold="updateThreshold(index, $event)"
         @unit="updateUnit(index, $event)"
-        @isInValid="handleIsInvalid(index, $event)"
+        @is-in-valid="handleIsInvalid(index, $event)"
       />
 
       <div
